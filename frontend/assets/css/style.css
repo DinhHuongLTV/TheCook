@@ -1,0 +1,261 @@
+.main-header .sidebar-toggle:before {
+  content: "";
+}
+
+.content-wrap {
+  min-height: 0 !important;
+  overflow: auto;
+}
+
+:root {
+  --primary-color: #F2786A;
+  --secondary-color: #EA4545;
+}
+
+html {
+  min-height: 100vh;
+  color: white;
+}
+
+
+/* ! header */
+header {
+  background-color: var(--primary-color);
+  padding: 24px 0;
+}
+
+
+.collapse.navbar-collapse {
+  justify-content: flex-end;
+}
+
+#logo img {
+  width: 240px;
+  margin: 0 auto;
+  display: inline-block;
+}
+
+.header_navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.link-secondary {
+  color: white !important;
+}
+
+#search_form {
+  width: 70%;
+  padding: 4px;
+  background-color: white;
+  display: flex;
+  margin: 0 auto;
+  height: 28px;
+}
+
+.header_search input[type="text"] {
+  border: none;
+  flex: 1;
+  outline: none;
+}
+
+.header_search button[type="submit"] {
+  background-color: var(--secondary-color);
+  border: none;
+  color: white;
+  width: 10%;
+  font-size: 12px;
+}
+
+/* ! main */
+main {
+  min-height: 500px;
+}
+
+.info_container {
+  background-color: #EFF1F5;
+}
+
+
+.thecook_form {
+  background-color: white;
+  border-radius: 12px;
+}
+
+.form_method {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.form-submit {
+  background-color: #F6A69D;
+  color: white;
+}
+
+.method_item {
+  font-size: 13px;
+}
+
+.form_btn {
+  text-transform: uppercase;
+  width: 100px;
+}
+
+.form_divider {
+  position: relative;
+  border-top: 1px gray solid;
+}
+
+.form_divider::before {
+  content: "hoặc";
+  background-color: white;
+  position: absolute;
+  color: black;
+  left: 50%;
+  top: 50%;
+  font-size: 14px;
+  transform: translate(-50%, -50%);
+  padding: 1px 8px;
+  text-transform: uppercase;
+}
+
+.form_navigater {
+  display: flex;
+  justify-content: center;
+  font-size: 14px;
+}
+
+.navigater_link {
+  display: inline-block;
+  margin-left: 12px;
+}
+
+.chef_info {
+  background-color: white;
+;
+}
+
+.booking_label {
+  min-width: 80px;
+}
+
+.user_avatar {
+  border-radius: 100%;
+  height: 300px;
+  width: 300px;
+  box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.08);
+}
+
+.user_info_container {}
+
+.avatar_container {
+  background-color: #EDECEC;
+}
+
+/* ! footer */
+footer {
+  padding: 48px 0;
+  background-color: var(--primary-color);
+}
+
+.footer_container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-item {
+  color: white;
+}
+
+.footer-item h4 {
+  text-transform: uppercase;
+  font-weight: 400;
+  margin-bottom: 24px;
+}
+
+.footer_list {}
+
+.f-list_item {}
+
+@media (min-width: 992px) {
+  .navbar-nav {
+    width: 70%;
+    justify-content: space-between;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+
+  /* ! header */
+  #search_form {
+    width: 100%;
+  }
+
+  #logo img {
+    width: 200px;
+  }
+
+  /* ! main */
+  .form_btn {
+    font-size: 12px;
+    max-width: 80px;
+  }
+
+  .user_avatar {
+    width: 200px;
+    height: 200px;
+  }
+
+  .user_avatar {
+    height: 200px;
+  }
+
+  /* !footer */
+  .footer_container {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 767px) {
+
+  /* !header */
+  .header_navbar {
+    flex-wrap: wrap;
+  }
+
+  #navbar {
+    justify-content: right;
+  }
+
+  #logo img {
+    width: 180px;
+  }
+
+  #search_form {
+    width: 100%;
+  }
+
+  /* !main */
+  .form_btn {
+    font-size: 12px;
+    max-width: 80px;
+  }
+
+  .bg_container {
+    background: #EFF1F5;
+  }
+
+  .user_avatar {
+    width: 160px;
+    height: 160px;
+  }
+
+  /* !footer */
+  .footer_container {
+    flex-wrap: wrap;
+  }
+}

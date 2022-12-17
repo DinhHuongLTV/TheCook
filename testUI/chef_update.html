@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+        integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+        integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+    <style>
+        .chef_avatar {
+            background: url("/img/aeZ6enhr_400x400.jpg") center center / cover no-repeat;
+            min-height: 480px;
+        }
+
+        .bg_container {
+            position: relative;
+            background: url("/img/banner.png") center center / cover no-repeat;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container-md header__container">
+            <nav class="navbar navbar-expand-lg bg-transparent">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#" id="logo">
+                        <img src="img/logo.png" alt="">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="#">
+                                    <i class="fa-regular fa-bell"></i>
+                                    <span class="navbar_text">
+                                        Thông báo
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <i class="fa-regular fa-circle-question"></i>
+                                    <span class="navbar_text">
+                                        Hỗ trợ
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <i class="fa-solid fa-globe"></i>
+                                    <span class="navbar_text">
+                                        Tiếng Việt
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link btn btn-outline-secondary show-lg" href="#">
+                                    Đăng kí
+                                </a>
+                                <a class="nav-link show-sm show-md active" href="#">
+                                    Đăng kí
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link btn btn-outline-secondary show-lg" href="#">
+                                    Đăng nhập
+                                </a>
+                                <a class="nav-link show-sm show-md active" href="#">
+                                    Đăng nhập
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <div class="header_search">
+                <form id="search_form" action="https://www.facebook.com/" method="post">
+                    <input type="text" name="searching_value" id="">
+                    <button type="submit">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </header>
+
+    <main class="">
+        <div class="info_container">
+            <div class="container py-5 bg-light">
+                <form action="" method="post" enctype="multipart/form-data">
+                    <div class="form-group my-3">
+                        <label for="username">Tên đăng nhập: </label>
+                        <input type="text" class="form-control" id="username" placeholder="Enter username"
+                            name="username"
+                            value="<?php echo isset($_POST['username']) ? $_POST['username'] : $data['username'] ?>"
+                            disabled>
+                        <small class="form-text text-muted" style="color: red">
+                            <?php echo !empty($data['ue']) ? $data['ue'] : "" ?>
+                        </small>
+                    </div>
+                    <div class="form-group my-3">
+                        <label for="avatar">Avatar: </label>
+                        <?php if(isset($data['avatar'])):?>
+                        <img src="assets/uploads/<?php echo $data['avatar']?>" alt="Ảnh đại diện"
+                            style="height: 50px; width: 50px; border-radius: 50px">
+                        <?php endif;?>
+                        <input type="file" class="form-control-file" id="avatar" name="avatar">
+                        <small class="form-text text-muted" style="color: red">
+                            <?php echo !empty($data['ae']) ? $data['ae'] : "" ?>
+                        </small>
+                    </div>
+                    <div class="form-group my-3">
+                        <label for="password">Password: </label>
+                        <input type="password" class="form-control" id="username" placeholder="Enter password"
+                            name="password"
+                            value="<?php echo isset($_POST['password']) ? $_POST['password'] : $data['password'] ?>">
+                        <small class="form-text text-muted" style="color: red">
+                            <?php echo !empty($data['pe']) ? $data['pe'] : "" ?>
+                        </small>
+                    </div>
+                    <div class="form-group my-3">
+                        <label for="category">Hạng mục: </label>
+                        <select name="category" id="" class="form-control">
+                            <?php foreach ($data['categories'] as $category): ?>
+                            <option value="<?php echo $category['id']?>" <?php echo $data['category']==$category['id']
+                                ? "selected" : "" ?>
+                                >
+                                <?php echo $category['name'] ?>
+                            </option>
+                            <?php endforeach; ?>
+                        </select>
+                        <small class="form-text text-muted" style="color: red">
+                            <?php echo !empty($data['cae']) ? $data['cae'] : "" ?>
+                        </small>
+                    </div>
+                    <div class="form-group my-3">
+                        <label for="nationality">Quốc tịch: </label>
+                        <input type="text" class="form-control" id="username" placeholder="Enter nationality"
+                            name="nationality"
+                            value="<?php echo isset($_POST['nationality']) ? $_POST['nationality'] : $data['nationality'] ?>">
+                        <small class="form-text text-muted" style="color: red">
+                            <?php echo !empty($data['ne']) ? $data['ne'] : "" ?>
+                        </small>
+                    </div>
+                    <div class="form-group my-3">
+                        <label for="username">First name: </label>
+                        <input type="text" class="form-control" id="username" placeholder="Enter first name"
+                            name="firstname"
+                            value="<?php echo isset($_POST['firstname']) ? $_POST['firstname'] : $data['firstname'] ?>">
+                        <small class="form-text text-muted" style="color: red">
+                            <?php echo !empty($data['fe']) ? $data['fe'] : "" ?>
+                        </small>
+                    </div>
+                    <div class="form-group my-3">
+                        <label for="username">Last name: </label>
+                        <input type="text" class="form-control" id="username" placeholder="Enter last name"
+                            name="lastname"
+                            value="<?php echo isset($_POST['lastname']) ? $_POST['lastname'] : $data['lastname'] ?>">
+                        <small class="form-text text-muted" style="color: red">
+                            <?php echo !empty($data['le']) ? $data['le'] : "" ?>
+                        </small>
+                    </div>
+                    <div class="form-group my-3">
+                        <label for="summary">Mô tả sơ lược: </label>
+                        <textarea name="summary"
+                            placeholder="Enter chef's summary"><?php echo !empty($_POST['summary']) ? $_POST['summary'] : $data['summary'] ?></textarea>
+                        <small class="form-text text-muted" style="color: red">
+                            <?php echo !empty($data['se']) ? $data['se'] : "" ?>
+                        </small>
+                    </div>
+                    <div class="form-group my-3">
+                        <label for="content">Mô tả chi tiết: </label>
+                        <textarea name="description"
+                            placeholder="Enter chef's description"><?php echo !empty($_POST['description']) ? $_POST['description'] : $data['description'] ?></textarea>
+                        <small class="form-text text-muted" style="color: red">
+                            <?php echo !empty($data['de']) ? $data['de'] : "" ?>
+                        </small>
+                    </div>
+                    <div class="form-group my-3">
+                        <label for="username">Phone: </label>
+                        <input type="text" class="form-control" id="username" placeholder="Enter phone number"
+                            name="phone"
+                            value="<?php echo isset($_POST['phone']) ? $_POST['phone'] : $data['phone'] ?>">
+                        <small class="form-text text-muted" style="color: red">
+                            <?php echo !empty($data['phe']) ? $data['phe'] : "" ?>
+                        </small>
+                    </div>
+                    <div class="form-group my-3">
+                        <label for="username">Address: </label>
+                        <input type="text" class="form-control" id="username" placeholder="Enter address" name="address"
+                            value="<?php echo isset($_POST['address']) ? $_POST['address'] : $data['address'] ?>">
+                        <small class="form-text text-muted" style="color: red">
+                            <?php echo !empty($data['ade']) ? $data['ade'] : "" ?>
+                        </small>
+                    </div>
+                    <div class="form-group my-3">
+                        <label for="username">Email: </label>
+                        <input type="text" class="form-control" id="username" placeholder="Enter email" name="email"
+                            value="<?php echo isset($_POST['email']) ? $_POST['email'] : $data['email'] ?>">
+                        <small class="form-text text-muted" style="color: red">
+                            <?php echo !empty($data['ee']) ? $data['ee'] : "" ?>
+                        </small>
+                    </div>
+                    <div class="form-group my-3">
+                        <label for="username">Jobs: </label>
+                        <input type="text" class="form-control" id="username" placeholder="Enter jobs" name="jobs"
+                            value="<?php echo isset($_POST['jobs']) ? $_POST['jobs'] : $data['jobs'] ?>">
+                        <small class="form-text text-muted" style="color: red">
+                            <?php echo !empty($data['je']) ? $data['je'] : "" ?>
+                        </small>
+                    </div>
+                    <div class="form-group my-3">
+                        <label for="username">Facebook: </label>
+                        <input type="text" class="form-control" id="username" placeholder="Enter user's facebook"
+                            name="facebook"
+                            value="<?php echo isset($_POST['facebook']) ? $_POST['facebook'] : $data['facebook'] ?>">
+                        <small class="form-text text-muted" style="color: red">
+                            <?php echo !empty($data['fbe']) ? $data['fbe'] : "" ?>
+                        </small>
+                    </div>
+                    <div class="form-group my-3">
+                        <input type="submit" value="Update" name="submit" class="btn btn-danger">
+                        <a href="index.php?controller=chefs&action=detail" class="btn btn-outline-secondary">Back</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container-md footer_container">
+            <div class="footer-item">
+                <h4>chăm sóc khách hàng</h4>
+                <ul class="footer_list">
+                    <li class="f-list_item">Trung tâm trợ giúp</li>
+                    <li class="f-list_item">The cook blog</li>
+                    <li class="f-list_item">Hướng dẫn sử dụng dịch vụ</li>
+                    <li class="f-list_item">Hướng dẫn cho đầu bếp</li>
+                    <li class="f-list_item">Thanh toán</li>
+                    <li class="f-list_item">Chăm sóc khách hàng</li>
+                    <li class="f-list_item">Chính sách bảo hành</li>
+                </ul>
+            </div>
+            <div class="footer-item">
+                <h4>về the cook</h4>
+                <ul class="footer_list">
+                    <li class="f-list_item">Giới thiệu về The Cook</li>
+                    <li class="f-list_item">Tuyển dụng</li>
+                    <li class="f-list_item">Điều khoản</li>
+                    <li class="f-list_item">Chính sách bảo mật</li>
+                    <li class="f-list_item">Truyền thông và liên hệ</li>
+                </ul>
+            </div>
+            <div class="footer-item">
+                <h4>thanh toán</h4>
+                <ul class="footer_list">
+                    <li class="f-list_item">
+                        <img src="" class="footer_img" alt="">
+                        JCB
+                    </li>
+                    <li class="f-list_item">
+                        <img src="" class="footer_img" alt="">
+                        Visa
+                    </li>
+                    <li class="f-list_item">
+                        <img src="" class="footer_img" alt="">
+                        MasterCard
+                    </li>
+                    <li class="f-list_item">
+                        <img src="" class="footer_img" alt="">
+                        Paypal
+                    </li>
+                    <li class="f-list_item">
+                        <img src="" class="footer_img" alt="">
+                        Cash
+                    </li>
+                </ul>
+            </div>
+            <div class="footer-item">
+                <h4>theo dõi chúng tôi trên</h4>
+                <ul class="footer_list">
+                    <li class="f-list_item">
+                        <img src="" alt="" class="footer_img">
+                        <span>Facebook</span>
+                    </li>
+                    <li class="f-list_item">
+                        <img src="" alt="" class="footer_img">
+                        <span>Instagram</span>
+                    </li>
+                    <li class="f-list_item">
+                        <img src="" alt="" class="footer_img">
+                        <span>Twitter</span>
+                    </li>
+                    <li class="f-list_item">
+                        <img src="" alt="" class="footer_img">
+                        <span>LinkedIn</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer-item">
+                <h4>tải ứng dụng tại</h4>
+                <ul class="footer_list">
+                    <li class="f-list_item">
+                        <a href="#">
+                            <img src="" alt="">
+                        </a>
+                    </li>
+                    <li class="f-list_item">
+                        <a href="#">
+                            <img src="" alt="">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- js -->
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+        integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        $('.owl-carousel').owlCarousel({
+            loop: false,
+            margin: 16,
+            nav: true,
+            responsive: {
+                0: {
+                    items: 1
+                },
+                600: {
+                    items: 3
+                },
+                1000: {
+                    items: 4
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
