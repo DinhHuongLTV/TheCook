@@ -15,6 +15,7 @@
 html {
   min-height: 100vh;
   color: white;
+  scroll-behavior: smooth;
 }
 
 
@@ -71,7 +72,9 @@ header {
 
 /* ! main */
 main {
+  height: 500px;
   min-height: 500px;
+  position: relative;
 }
 
 .info_container {
@@ -108,6 +111,11 @@ main {
 .form_divider {
   position: relative;
   border-top: 1px gray solid;
+}
+
+.home-container {
+  background: url("assets/images/banner.png") center center / cover no-repeat;
+  height: 100%;
 }
 
 .form_divider::before {

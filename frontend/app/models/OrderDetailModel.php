@@ -9,9 +9,6 @@ class OrderDetailModel extends Model
             ':id' => $id,
         ];
         $obj_select->execute($data);
-        echo "<pre>";
-        print_r($obj_select->fetchAll(PDO::FETCH_ASSOC));
-        echo "</pre>";
-//        return $obj_select->fetchAll(PDO::FETCH_ASSOC);
+        return $obj_select->fetchAll(PDO::FETCH_ASSOC);
     }
 }

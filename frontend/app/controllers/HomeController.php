@@ -1,12 +1,14 @@
 <?php
 session_start();
 require_once "app/controllers/Controller.php";
-require_once "app/models/ChefModel.php";
-require_once "app/models/ChefCategoryModel.php";
-require_once "app/models/NewsModel.php";
 class HomeController extends Controller
 {
-    public function index() {
-
+    public function index()
+    {
+        $data['content'] = "home/index";
+        $data['page_title'] = "The Cook - Trang chủ";
+        $data['header'] = "blocks/header_logined";
+        $data['footer'] = "blocks/footer_main";
+        $this->render("layouts/main", $data);
     }
 }

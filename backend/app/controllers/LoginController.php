@@ -25,7 +25,7 @@ class LoginController extends Controller
                 if (empty($existed_admin)) {
                     $this->__data['error'] = "Người dùng không tồn tại";
                 } else {
-                    $is_same = password_verify($password, $existed_admin['password']);
+                    $is_same = strcmp($password, $existed_admin['password']);
                     if ($is_same) {
                         $this->__data['error'] = "Sai mật khẩu";
                     } else {

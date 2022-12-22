@@ -93,7 +93,7 @@ class UserController extends Controller
                 } else {
                     $_SESSION['error'] = "Cập nhật thông tin người dùng thất bại";
                 }
-                header("Location: index.php?controller=news&action=index");
+                header("Location: index.php?controller=home&action=index");
                 exit();
             }
         }

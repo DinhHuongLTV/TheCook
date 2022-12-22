@@ -29,7 +29,7 @@ use TheCook_db;
 CREATE TABLE IF NOT EXISTS news_categories (
     id INT(11) NOT NULL AUTO_INCREMENT,
     name VARCHAR(255) NOT NULL COMMENT 'Tên danh mục',
-    discription TEXT DEFAULT NULL COMMENT 'Mô tả danh mục',
+    description TEXT DEFAULT NULL COMMENT 'Mô tả danh mục',
     status tinyint(1) default 0 comment 'Trạng thái: 0 - inactive, 1 - active',
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP () COMMENT 'Ngày tạo danh mục',
     updated_at DATETIME DEFAULT NULL COMMENT 'Ngày cập nhật cuối',
@@ -40,12 +40,15 @@ CREATE TABLE IF NOT EXISTS news_categories (
 create table if not exists chef_categories (
 	id INT(11) NOT NULL AUTO_INCREMENT,
     name VARCHAR(255) NOT NULL COMMENT 'Tên danh mục',
-    discription TEXT DEFAULT NULL COMMENT 'Mô tả danh mục',
+    description TEXT DEFAULT NULL COMMENT 'Mô tả danh mục',
     status tinyint(1) default 0 comment 'Trạng thái: 0 - inactive, 1 - active',
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP () COMMENT 'Ngày tạo danh mục',
     updated_at DATETIME DEFAULT NULL COMMENT 'Ngày cập nhật cuối',
     primary key (id)
 );
+
+
+
 
 -- các loại người dùng: 1 - admin, 2 - đầu bếp, 3 - người dùng thông thường
 create table if not exists user_categories (
@@ -81,6 +84,7 @@ create table if not exists news (
     primary key (id),
     foreign key (category_id) references news_categories(id)
 );
+
 	
 create table if not exists `users` (
 	id int(11) not null auto_increment,
@@ -129,7 +133,7 @@ create table if not exists `chefs` (
     foreign key (category_id) references chef_categories(id)
 );
 
-alter table chefs add column price int(9) default null comment 'Giá làm việc một giờ';
+-- alter table chefs add column price int(9) default null comment 'Giá làm việc một giờ';
 
 create table if not exists `admin` (
 	id int(11) not null auto_increment,
@@ -159,8 +163,28 @@ create table if not exists `orders` (
     primary key (id)
 );
 
+
 create table if not exists `order_detail` (
 	order_id int(11) default null,
     user_id int(11) default null,
-    foreign key (order_id)
+    foreign key (user_id) references users(id),
+    foreign key (order_id) references orders(id)
     );
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
