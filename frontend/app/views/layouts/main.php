@@ -34,7 +34,8 @@
 
         .home-container {
             background: url("assets/uploads/banner.png") center center / cover no-repeat;
-            height: 100%;
+            height: 500px;
+            min-height: 500px;
         }
     </style>
 </head>

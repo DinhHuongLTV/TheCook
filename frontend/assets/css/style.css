@@ -72,8 +72,6 @@ header {
 
 /* ! main */
 main {
-  height: 500px;
-  min-height: 500px;
   position: relative;
 }
 
@@ -144,7 +142,7 @@ main {
 
 .chef_info {
   background-color: white;
-;
+  ;
 }
 
 .booking_label {
